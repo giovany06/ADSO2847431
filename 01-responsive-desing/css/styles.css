@@ -1,0 +1,390 @@
+/*----------------------------------
+Cargar fuentes
+----------------------------------*/
+@import url('font.css');
+
+/*----------------------------------
+Reste
+----------------------------------*/
+@import url('reset.css');
+
+/*----------------------------------
+Variables
+----------------------------------*/
+:root{
+    --txt-heading: "Oswald", sans-serif;
+    --txt-body: "Raleway", sans-serif;
+    --color1: #ffffff;
+    --color2: #C05431;
+    --color3: #1f1f1f;
+    --color4: #d0dacc;
+    --color5: #00B5CC;
+    --color6: #D1AF8D;
+    --color7: #E8E8E8;
+}
+
+/*----------------------------------
+Estilos
+----------------------------------*/    
+
+body{
+    background-color: var(--color3);
+    color: var(--color3);
+    main{
+        
+        h1{
+            font-family: var(--txt-heading);
+        }
+        header{
+            background-color: var(--color3);
+            display: flex;
+            height: 100;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .hd{
+            display: flex;
+        }
+        nav {
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            a:is(:link, :visited){
+                text-decoration: none;
+                color: var(--color7);
+                font-size: 30px;
+                font-family: var(--txt-heading);
+                flex-direction: column;
+                transition: transform 0.2s ease-in;
+                align-items: center;
+                display: flex;
+                width: 170px;
+                a:is(:hover){
+                    transform: scale(1.1);
+                }
+                a:is(:hover){
+                    transform: scale(1.1);
+                }
+            }
+            button{
+                padding: 10%;
+                display: flex;
+                align-items: center;
+                font-size: 20px;
+                font-weight: 500;
+                font-family: var(--txt-heading);
+                width: 180px;
+                height: 60px;
+                background-color: var(--color3);
+                background-color: #ff4000;
+                border-radius: 0.8rem;
+                padding: 0.8rem;
+                color: var(--color3);
+                border: none;
+                cursor: pointer;
+                text-decoration: rgb(0, 0, 0);
+                transition: transform 0.2s ease-in;
+                a:is(:hover){
+                    transform: scale(1.1);
+                }
+                a:is(:hover){
+                    transform: scale(1.1);
+                }
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+            img{
+                display: flex;
+                width: 150%;
+                height: 150%;
+                text-align: center;
+            }
+        }
+        section.slider{
+            display: flex;
+            background-color: #00B5CC;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            div,owl-nav {
+                background-color: #030303;
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                width: 100%;
+                top: 50%;
+                }
+            }
+        }
+        .t{
+            color: var(--color1);
+        }
+        .personajes {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .personaje {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            overflow: hidden;
+            border: 2px solid #000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 10px;
+            background-color: #000000;
+        }
+        
+        .personaje img {
+            padding: 1rem;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            margin: auto;
+        }
+        
+        .titulo {
+            background-image: url(/imagenes/Rectangle\ 114.png);
+            position: absolute;
+            bottom: 0%;
+            left: 0;
+            width: 100%;
+            color: #ffffff;
+            padding: 5px;
+            text-align: center;
+            background-color: #000000;
+            padding: 1rem;
+            font-family: var(--txt-body);
+        }
+
+/* Estilos para la sección de Objetos */
+.seccion-objetos {
+    background-image: url(/imagenes/Rectangle\ 118.png);
+    padding: 20px;
+    text-align: center; /* Para centrar el contenido */
+    margin-bottom: 30px; /* Espacio inferior */
+}
+
+.objetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.objeto {
+    display: flex;
+    margin-bottom: 20px ;
+    border-radius: 3%;
+    border-color: #000000;
+    overflow: hidden;
+    background: transparent
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.imagen {
+    position: relative;
+    flex: 0 0 40%; /* Ancho de la imagen */
+}
+
+.imagen img {
+    width: 100%;
+    vertical-align: top;
+}
+
+.cinta {
+    background-image: url(/imagenes/Rectangle\ 114.png);
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    color: #ffffff;
+    text-align: center;
+    
+    padding: 1rem;
+    font-family: var(--txt-heading);
+    border-radius: 3px;
+}
+
+.descripcion {
+    flex: 1;
+    padding: 20px;
+    color: #d0dacc;
+}
+
+
+.descripcion h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.descripcion  {
+    background-image: url(/imagenes/Rectangle\ 121.png);
+    background-position: relative;
+    font-family: var(--txt-body);
+    font-size: 16px;
+    line-height: 1.6;
+}
+.per{
+    text-align: center;
+}
+
+.personaje {
+    text-align: center;
+    padding: 20px;
+    
+    border: 1px solid #0c0c0c; /* Borde opcional para resaltar los personajes */
+    display: inline-block; /* Mostrar en línea para visualización horizontal */
+}
+.personaje img {
+    max-width: 100%;
+    height: auto;
+}
+.personaje .titulo {
+    margin-top: 10px;
+    font-family: var(--txt-heading);
+}
+body {
+    background-color: #2a2b5a;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-image: url(/imagenes/Rectangle\ 119.png);
+    width: 1450px;
+    height: 800px;
+    margin: 0 auto;
+    padding: 300px;
+    align-self: center;
+
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.grid-item {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.fot{
+    text-align: center;
+    
+}
+
+.footer {
+    margin-top: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+.btn{
+    padding: 10%;
+                display: flex;
+                align-items: center;
+                font-size: 20px;
+                font-weight: 500;
+                font-family: var(--txt-heading);
+                width: 180px;
+                height: 60px;
+                background-color: white;
+                background-color: white;
+                border-radius: 0.8rem;
+                padding: 0.8rem;
+                color: white;
+                border: none;
+                cursor: pointer;
+                text-decoration: white;
+                transition: transform 0.2s ease-in;
+                a:is(:hover){
+                    transform: scale(1.1);
+                }
+                a:is(:hover){
+                    transform: scale(1.1);
+                }
+                &:hover{
+                    transform: scale(1.1);
+                }
+}
+footer {
+    background-image: url(/imagenes/Rectangle\ 258.png);
+    padding: 10px 10px 10px 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-logo img {
+    height: 50px;
+}
+
+.social-media-icons {
+    text-align: left;
+    display: flex;
+    gap: 20px;
+}
+
+.social-media-icons img {
+    height: 30px;
+    width: 30px;
+}
+
+.footer-image img {
+    height: 50px;
+    border-radius: 50%;
+    text-align: left;
+}
+
+.fondod{
+    border-radius: 50px;
+    
+}
+
+.flechad{
+    width: 20px;
+    
+}
+
+.historia1{
+    
+    text-align: center;
+    color: #000000;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    
+
+    
+}
