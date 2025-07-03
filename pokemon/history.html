@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Pokémon - PokeLand</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/Pokebola-pokeball-png-0.png" type="image/png">
+</head>
+<body>
+    <div class="background-overlay"></div> <header class="pokeball-header">
+        <div class="header-top">
+            <img src="img/Pokebola-pokeball-png-0.png" alt="Pokeball Logo" class="pokeball-logo-left">
+            <h1>Historia Pokémon</h1>
+            <img src="img/Pokebola-pokeball-png-0.png" alt="Pokeball Logo" class="pokeball-logo-right">
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#pokemon-list-container">Pokémon</a></li>
+                <li><a href="index.html#pokedex-section">Pokedex</a></li>
+                <li><a href="history.html" class="active">Historia Pokémon</a></li>
+            </ul>
+        </nav>
+        <p>Bienvenido a la sección de historia Pokémon. Aquí exploraremos a algunas de las criaturas más icónicas y utilizadas que han dejado su huella a lo largo de las generaciones. Desde los compañeros iniciales hasta los legendarios más poderosos, descubre los Pokémon que han dominado escenarios y corazones de Entrenadores en todo el mundo.</p>
+    </header>
+
+    <main id="history-main" class="main-content">
+        <h2>Personajes Principales de la Historia Pokémon</h2>
+        
+        <div id="iconic-pokemon-grid" class="pokemon-grid">
+            <p>Cargando personajes icónicos...</p>
+        </div>
+        
+    </main>
+
+    <div id="pokemon-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="pokemon-detail">
+                </div>
+            <button id="back-button">Volver a la Lista</button>
+        </div>
+    </div>
+
+    <script src="js/history_script.js"></script> </body>
+</html>

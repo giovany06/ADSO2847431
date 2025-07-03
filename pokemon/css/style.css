@@ -1,0 +1,555 @@
+/* Estilos Generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    background-image: url('../img/todos.jpeg'); /* Ruta a tu imagen de Pikachu */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+/* Capa de superposición para un efecto difuminado/degradado sobre el fondo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.9));
+    z-index: -1;
+}
+
+/* Contenedor principal para centrar el contenido y darle un fondo blanco semitransparente */
+.main-content {
+    max-width: 1200px; /* Limita el ancho para un diseño más controlado */
+    margin: 20px auto; /* Centra el contenido */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo casi opaco para el contenido */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Header al estilo Pokébola */
+.pokeball-header {
+    background: linear-gradient(to bottom, #cc0000 0%, #cc0000 50%, #f0f0f0 50%, #f0f0f0 100%);
+    border-bottom: 5px solid #333;
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.pokeball-logo-left, .pokeball-logo-right {
+    width: 60px;
+    height: 60px;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+h1 {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-size: 3.5em;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Filtro de generación */
+.generation-filter {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.generation-filter label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #555;
+}
+
+#generation-select {
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+#generation-select:focus {
+    outline: none;
+    border-color: #cc0000;
+    box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.25);
+}
+
+/* Menú de Navegación */
+.main-nav {
+    background-color: #333;
+    padding: 10px 0;
+    border-top: 2px solid #555;
+    border-bottom: 2px solid #555;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    color: #cc0000;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Cuadrícula de Pokémon (Responsiva) */
+.pokemon-grid {
+    display: grid;
+    gap: 25px;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px; /* Espacio para la paginación */
+}
+
+/* Desktop: 6 tarjetas/fila */
+@media (min-width: 1024px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* Tablet: 4 tarjetas/fila */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Mobile: 2 tarjetas/fila */
+@media (max-width: 767px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tarjeta de Pokémon Individual (aplicable a Iconic Pokémon también) */
+.pokemon-card {
+    background-color: #fff;
+    border: 3px solid #ccc;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    border-color: #fc04f3;
+}
+
+.pokemon-card img {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+    background-color: #eee;
+    border-radius: 50%;
+    padding: 5px;
+    border: 2px solid #ddd;
+    transition: transform 0.3s ease;
+}
+
+.pokemon-card:hover img {
+    transform: scale(1.1);
+}
+
+.pokemon-card .pokemon-id {
+    font-weight: bold;
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.pokemon-card h3 {
+    margin: 10px 0 5px;
+    color: #333;
+    font-size: 1.3em;
+    text-transform: capitalize;
+}
+
+.pokemon-card .pokemon-types {
+    font-size: 0.95em;
+    color: #666;
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+/* Controles de Paginación */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-button {
+    background-color: #cc0000; /* Rojo Pokébola */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: #990000; /* Rojo más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+.pagination-button:disabled {
+    background-color: #cccccc; /* Gris para botones deshabilitados */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.page-info {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Sección Pokedex */
+.pokedex-section {
+    background: linear-gradient(to right, #5c5b5b, #ff5c5c);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.pokedex-section h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.pokedex-section p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    opacity: 0.9;
+}
+
+/* Estilo para el nuevo botón de acción */
+.action-button {
+    background-color: #333; /* Color oscuro para contraste */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 25px; /* Espacio superior */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    position: absolute; /* Posicionamiento absoluto dentro de pokedex-section */
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.action-button:hover {
+    background-color: #555;
+    transform: translateX(-50%) translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+.pokedex-decoration {
+    /* background-image: url('../img/Pokebola-pokeball-png-0.png'); -- Eliminado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.pokedex-screen {
+    width: 150px;
+    height: 100px;
+    background-color: #c21212;
+    border: 5px solid #000;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    /* Nuevas propiedades para la imagen centrada */
+    background-image: url('../img/pokedex.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; /* Asegura que la imagen se ajuste dentro del cuadro sin cortarse */
+}
+
+.pokedex-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.pokedex-button.red {
+    background-color: #e74c3c;
+}
+
+.pokedex-button.blue {
+    background-color: #3498db;
+}
+
+.pokedex-button:hover {
+    transform: scale(1.1);
+}
+
+/* Sección Historia Pokémon */
+.history-section {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px; /* Espacio superior */
+    margin-bottom: 40px; /* Espacio inferior */
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo para la sección de historia */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.history-section h2 {
+    font-size: 2.5em;
+    color: #cc0000; /* Rojo como el header */
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.history-section p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: #555;
+}
+
+/* El .pokemon-grid dentro de history-section se comportará igual */
+#iconic-pokemon-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 3-4 columnas para iconic */
+    max-width: 1000px; /* Limitar ancho para los iconic cards */
+    margin: 0 auto; /* Centrar la grid */
+}
+
+/* Modal para Detalles del Pokémon */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 3px solid #cc0000;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 650px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    position: relative;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+#pokemon-detail {
+    text-align: center;
+    padding-top: 20px;
+}
+
+#pokemon-detail h2 {
+    color: #cc0000;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#pokemon-detail img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 25px;
+    border: 5px solid #cc0000;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+#pokemon-detail p {
+    font-size: 1.15em;
+    margin-bottom: 12px;
+}
+
+#pokemon-detail ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 350px;
+    margin: 25px auto;
+}
+
+#pokemon-detail ul li {
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#pokemon-detail ul li strong {
+    color: #0056b3;
+    font-weight: bold;
+}
+
+#back-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#back-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Responsividad del modal */
+@media (max-width: 767px) {
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 20px;
+    }
+    #pokemon-detail h2 {
+        font-size: 1.8em;
+    }
+    #pokemon-detail img {
+        max-width: 150px;
+    }
+    .pokedex-section h2 {
+        font-size: 2em;
+    }
+}
+
+/* Mensajes de error */
+.error-message {
+    text-align: center;
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+}

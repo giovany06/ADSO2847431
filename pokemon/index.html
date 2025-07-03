@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeLand</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/Pokebola-pokeball-png-0.png" type="image/png">
+</head>
+<body>
+    <div class="background-overlay"></div> <header class="pokeball-header">
+        <div class="header-top">
+            <img src="img/Pokebola-pokeball-png-0.png" alt="Pokeball Logo" class="pokeball-logo-left">
+            <h1>PokeLand</h1>
+            <img src="img/Pokebola-pokeball-png-0.png" alt="Pokeball Logo" class="pokeball-logo-right">
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="#pokemon-list-container">Pokémon</a></li>
+                <li><a href="#pokedex-section">Pokedex</a></li>
+                <li><a href="history.html">Historia Pokémon</a></li> </ul>
+        </nav>
+        <div class="generation-filter">
+            <label for="generation-select">Seleccionar Generación:</label>
+            <select id="generation-select">
+                <option value="gen1">Generación I (1-151)</option>
+                <option value="gen2">Generación II (152-251)</option>
+                <option value="gen3">Generación III (252-386)</option>
+            </select>
+        </div>
+    </header>
+
+    <main id="pokemon-list-container" class="main-content">
+        <div id="pokemon-grid" class="pokemon-grid"></div>
+
+        <div class="pagination-controls">
+            <button id="prev-page" class="pagination-button">Anterior</button>
+            <span id="page-info" class="page-info">Página 1 de 1</span>
+            <button id="next-page" class="pagination-button">Siguiente</button>
+        </div>
+    </main>
+
+    <section id="pokedex-section" class="pokedex-section">
+        <h2>La Pokedex</h2>
+        <p>El Pokédex es una enciclopedia tecnológica portátil para Entrenadores Pokémon, diseñada para registrar y consultar información detallada de cada especie encontrada. Ayuda a los Entrenadores a catalogar sus descubrimientos y a los Profesores Pokémon a completar la base de datos global de criaturas. Es la herramienta esencial para conocer y capturar a todos los Pokémon en el mundo.</p>
+        
+        <div class="pokedex-decoration">
+            <div class="pokedex-screen"></div>
+            <div class="pokedex-button red"></div>
+            <div class="pokedex-button blue"></div>
+        </div>
+    </section>
+
+    <div id="pokemon-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="pokemon-detail">
+                </div>
+            <button id="back-button">Volver a la Lista</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
